@@ -7,5 +7,10 @@ RUN ["/opt/paraviewweb/scripts/addEndpoints.sh", \
   "visualizer", "/opt/paraview/share/paraview-5.6/web/visualizer/www" \
 ]
 
-# Start the container
+ENV PROTOCOL=ws
+ENV SERVER_NAME=localhost
+ENV EXTRA_PVPYTHON_ARGS="-dr"
+
+EXPOSE 80
+
 ENTRYPOINT ["/opt/paraviewweb/scripts/start.sh"]
